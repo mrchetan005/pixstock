@@ -21,17 +21,17 @@ const Banner = () => {
                     </Link>
                 </div>
                 <div className={styles.cardGrid}>
-                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b1', backgroundImage: `url(/src/assets/images/photo-banner-1.jpg)` }}>
+                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b1', backgroundImage: `url(/images/photo-banner-1.jpg)` }}>
                     </div>
-                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b2', backgroundImage: `url(/src/assets/images/photo-banner-2.jpg)` }}>
+                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b2', backgroundImage: `url(/images/photo-banner-2.jpg)` }}>
                     </div>
-                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b3', backgroundImage: `url(/src/assets/images/photo-banner-3.jpg)` }}>
+                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b3', backgroundImage: `url(/images/photo-banner-3.jpg)` }}>
                     </div>
-                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b4', backgroundImage: `url(/src/assets/images/photo-banner-4.jpg)` }}>
+                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b4', backgroundImage: `url(/images/photo-banner-4.jpg)` }}>
                     </div>
-                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b5', backgroundImage: `url(/src/assets/images/photo-banner-5.jpg)` }}>
+                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b5', backgroundImage: `url(/images/photo-banner-5.jpg)` }}>
                     </div>
-                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b6', backgroundImage: `url(/src/assets/images/photo-banner-6.jpg)` }}>
+                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b6', backgroundImage: `url(/images/photo-banner-6.jpg)` }}>
                     </div>
                 </div>
             </div>
@@ -52,32 +52,32 @@ const Banner = () => {
                 <div className={styles.cardGrid}>
                     <div className={`${styles.cardBanner}`} style={{ gridArea: 'b1' }} >
                         <video className={styles.video} width={360} height={420} loading='lazy' autoPlay muted loop>
-                            <source src='/src/assets/videos/video-banner-1.mp4' type='video/mp4' />
+                            <source src='/videos/video-banner-1.mp4' type='video/mp4' />
                         </video>
                     </div>
                     <div className={`${styles.cardBanner}`} style={{ gridArea: 'b2' }} >
                         <video className={styles.video} width={360} height={640} loading='lazy' autoPlay muted loop>
-                            <source src='/src/assets/videos/video-banner-2.mp4' type='video/mp4' />
+                            <source src='/videos/video-banner-2.mp4' type='video/mp4' />
                         </video>
                     </div>
                     <div className={`${styles.cardBanner}`} style={{ gridArea: 'b3' }} >
                         <video className={styles.video} width={480} height={360} loading='lazy' autoPlay muted loop>
-                            <source src='/src/assets/videos/video-banner-3.mp4' type='video/mp4' />
+                            <source src='/videos/video-banner-3.mp4' type='video/mp4' />
                         </video>
                     </div>
                     <div className={`${styles.cardBanner}`} style={{ gridArea: 'b4' }} >
                         <video className={styles.video} width={360} height={640} loading='lazy' autoPlay muted loop>
-                            <source src='/src/assets/videos/video-banner-4.mp4' type='video/mp4' />
+                            <source src='/videos/video-banner-4.mp4' type='video/mp4' />
                         </video>
                     </div>
                     <div className={`${styles.cardBanner}`} style={{ gridArea: 'b5' }} >
                         <video className={styles.video} width={640} height={360} loading='lazy' autoPlay muted loop>
-                            <source src='/src/assets/videos/video-banner-5.mp4' type='video/mp4' />
+                            <source src='/videos/video-banner-5.mp4' type='video/mp4' />
                         </video>
                     </div>
                     <div className={`${styles.cardBanner}`} style={{ gridArea: 'b6' }} >
                         <video className={styles.video} width={480} height={360} loading='lazy' autoPlay muted loop>
-                            <source src='/src/assets/videos/video-banner-6.mp4' type='video/mp4' />
+                            <source src='/videos/video-banner-6.mp4' type='video/mp4' />
                         </video>
                     </div>
                 </div>
@@ -97,30 +97,30 @@ const Banner = () => {
                     </Link>
                 </div>
                 <div className={styles.cardGrid}>
-                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b1', backgroundImage: `url(/src/assets/images/collection-banner-1.jpg)` }}>
+                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b1', backgroundImage: `url(/images/collection-banner-1.jpg)` }}>
                     </div>
 
                     <div className={`${styles.cardBanner}`} style={{ gridArea: 'b2' }} >
                         <video className={styles.video} width={360} height={420} loading='lazy' autoPlay muted loop>
-                            <source src='/src/assets/videos/collection-banner-2.mp4' type='video/mp4' />
+                            <source src='/videos/collection-banner-2.mp4' type='video/mp4' />
                         </video>
                     </div>
 
-                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b3', backgroundImage: `url(/src/assets/images/collection-banner-3.jpg)` }}>
+                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b3', backgroundImage: `url(/images/collection-banner-3.jpg)` }}>
                     </div>
 
-                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b4', backgroundImage: `url(/src/assets/images/collection-banner-4.jpg)` }}>
+                    <div className={`${styles.cardBanner}`} style={{ gridArea: 'b4', backgroundImage: `url(/images/collection-banner-4.jpg)` }}>
                     </div>
 
                     <div className={`${styles.cardBanner}`} style={{ gridArea: 'b5' }} >
                         <video className={styles.video} width={640} height={360} loading='lazy' autoPlay muted loop>
-                            <source src='/src/assets/videos/collection-banner-5.mp4' type='video/mp4' />
+                            <source src='/videos/collection-banner-5.mp4' type='video/mp4' />
                         </video>
                     </div>
 
                     <div className={`${styles.cardBanner}`} style={{ gridArea: 'b6' }} >
                         <video className={styles.video} width={640} height={338} loading='lazy' autoPlay muted loop>
-                            <source src='/src/assets/videos/collection-banner-6.mp4' type='video/mp4' />
+                            <source src='/videos/collection-banner-6.mp4' type='video/mp4' />
                         </video>
                     </div>
                 </div>
