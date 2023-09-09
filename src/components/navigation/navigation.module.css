@@ -1,0 +1,114 @@
+.navigation {
+	--navigation-drawer-width: 320px;
+	background-color: var(--surface);
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	max-width: var(--navigation-drawer-width);
+	width: 0;
+	z-index: 0;
+	visibility: hidden;
+	transition: var(--motion-duration-medium-1)
+		var(--motion-easing-emphasized-accelerate);
+	transition-property: width, visibility;
+	border-radius: var(--radius-large-end);
+}
+
+.show {
+	width: var(--navigation-drawer-width);
+	visibility: visible;
+	transition: var(--motion-duration-long)
+		var(--motion-easing-emphasized-decelerate);
+	z-index: 10;
+}
+
+.navigationHeader {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding-block: 8px 12px;
+}
+
+.navigationHeader,
+.drawerList {
+	padding-inline: 12px;
+	opacity: 0;
+	transition: var(--motion-duration-medium-1) var(--motion-easing-emphasized);
+}
+
+.show :where(.navigationHeader, .drawerList) {
+	opacity: 1;
+	transition: var(--motion-duration-long)
+		var(--motion-easing-emphasized-decelerate);
+}
+
+.show .navigationHeader {
+	transition: var(--motion-duration-short-2)
+		var(--motion-easing-emphasized-accelerate);
+}
+
+.drawerLink {
+	display: flex;
+	align-items: center;
+	justify-content: unset !important;
+	gap: 12px;
+	height: 56px;
+	width: 100%;
+	padding-inline: 16px 24px;
+	text-transform: capitalize;
+	border-radius: var(--radius-full) !important;
+}
+
+.drawerLink.active {
+	background-color: var(--secondary-container) !important;
+	color: var(--on-secondary-container) !important;
+}
+
+.scrim {
+	position: fixed;
+	inset: 0;
+	background-color: var(--scrim);
+	z-index: 5;
+	opacity: 0;
+	visibility: hidden;
+	transition: var(--motion-duration-short-2) var(--motion-easing-linear);
+	transition-property: visibility, opacity;
+}
+
+.scrim.active {
+	visibility: visible;
+	opacity: 0.5;
+}
+
+/** responsive for larger than 1240px screen */
+
+@media screen and (min-width: 1200px) {
+	.scrim {
+		display: none;
+	}
+}
+
+/** responsive for larger than 1240px screen */
+
+@media screen and (min-width: 1240px) {
+	.navigation {
+		--navigation-drawer-width: 360px;
+		visibility: visible;
+		width: var(--navigation-drawer-width);
+		border-radius: 0;
+	}
+
+	.navigation :where(.navigationHeader, .drawerList) {
+		opacity: 1;
+	}
+
+	.navigationHeader {
+		height: 64px;
+		padding-inline: 28px;
+	}
+
+	.navigationHeader .iconBtn {
+		display: none;
+	}
+}

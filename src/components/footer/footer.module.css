@@ -1,0 +1,54 @@
+.footer {
+	margin-top: 24px;
+	margin-bottom: 16px;
+}
+.footerCard {
+	background-color: var(--surface-container);
+	color: var(--on-surface-variant);
+	padding: 16px;
+	border-radius: var(--radius-large);
+}
+
+.text {
+	line-height: 18px;
+	margin-block: 8px 16px;
+}
+
+.footerCard :where(span, a) {
+	display: inline-block;
+}
+
+.footerCard a:not(.logo):hover {
+	text-decoration: underline;
+}
+
+.title {
+	margin-bottom: 4px;
+}
+
+/* ----------------------------------- */
+/* ! MEDIA QUERIES */
+/* ----------------------------------- */
+
+/** responsive for larger than 900px screen */
+
+@media screen and (min-width: 900px) {
+	.footerCard {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+		align-items: flex-end;
+	}
+
+	.footerCard .text {
+		margin-bottom: 4px;
+	}
+}
+
+/** responsive for larger than 1240px screen */
+
+@media screen and (min-width: 1240px) {
+	.footer {
+		margin-left: 360px;
+	}
+}

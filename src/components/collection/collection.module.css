@@ -1,0 +1,7 @@
+.listItem {
+	border-bottom: 1px solid var(--outline-variant);
+}
+
+.label {
+	color: var(--on-surface-variant);
+}

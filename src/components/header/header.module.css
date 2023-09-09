@@ -1,0 +1,185 @@
+.topAppBar {
+	background-color: var(--surface);
+	display: flex;
+	align-items: center;
+	padding-inline: 4px;
+	height: var(--top-app-bar-height);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 4;
+	transition: background-color var(--motion-duration-short-2)
+		var(--motion-easing-linear);
+}
+
+.active {
+	background-color: var(--surface-container);
+}
+
+.searchView {
+	background-color: var(--surface-container-high);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100dvh;
+	z-index: 5;
+	opacity: 0;
+	visibility: hidden;
+	transition: var(--motion-duration-short-2) var(--motion-easing-standard);
+	transition-property: opacity, visibility;
+}
+
+.show {
+	opacity: 1;
+	visibility: visible;
+}
+
+.leadingIcon {
+	display: none;
+}
+
+.searchBar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-inline: 4px;
+	height: 72px;
+	border-bottom: 1px solid var(--outline);
+}
+
+.inputField {
+	color: var(--on-surface);
+}
+
+.inputWrapper {
+	flex: 1;
+}
+
+.inputWrapper,
+.inputField {
+	height: 100%;
+}
+
+.inputField::placeholder {
+	color: var(--on-surface-variant);
+}
+
+.inputField::-webkit-search-cancel-button {
+	display: none;
+}
+
+.inputWrapper:has(:placeholder-shown) + .iconBtn {
+	display: none;
+}
+
+.btnGroup {
+	margin: 16px;
+	display: flex;
+	border: 1px solid var(--outline);
+	border-radius: var(--radius-full);
+	overflow: hidden;
+}
+
+.btnSegment {
+	color: var(--on-surface);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	height: 40px;
+	flex: 1;
+	padding-inline: 12px;
+}
+
+.btnSegment:not(:last-child) {
+	border-right: 1px solid var(--outline);
+}
+
+.selected {
+	background-color: var(--secondary-container) !important;
+	color: var(--on-secondary-container) !important;
+}
+
+.list {
+	padding-block: 8px;
+	margin-inline: 8px;
+}
+
+/* ----------------------------------- */
+/* ! MEDIA QUERIES */
+/* ----------------------------------- */
+
+/** responsive for larger than 900px screen */
+
+@media screen and (min-width: 900px) {
+	.searchView {
+		all: unset;
+		align-self: flex-start;
+		margin-top: 8px;
+		margin-inline: auto;
+		max-width: 430px;
+		width: 100%;
+		background-color: var(--surface-container-high);
+		border-radius: var(--radius-extra-large);
+		overflow: hidden;
+	}
+
+	.searchView:focus-within {
+		box-shadow: var(--elevation-2);
+	}
+
+	.searchBar {
+		height: 48px;
+	}
+
+	.searchView:not(:focus-within) .searchBar {
+		border: none;
+	}
+
+	.searchBar .backArrowIcon,
+	.searchView:not(:focus-within) :where(.icon-btn, .searchViewContent) {
+		display: none;
+	}
+
+	.searchBar .leadingIcon {
+		display: block;
+	}
+
+	.searchIconRight {
+		display: none !important;
+	}
+
+	.searchBar .inputWrapper {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		padding-left: 16px;
+	}
+}
+
+/** responsive for larger than 1240px screen */
+
+@media screen and (min-width: 1240px) {
+	.topAppBar {
+		left: 360px;
+		width: auto;
+		right: 0;
+	}
+
+	.active {
+		background-color: var(--background);
+	}
+
+	.searchView {
+		max-width: 560px;
+	}
+}
+
+/** responsive for larger than 1240px screen */
+
+@media screen and (min-width: 1400px) {
+	.searchView {
+		max-width: 720px;
+	}
+}

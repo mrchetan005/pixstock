@@ -1,0 +1,71 @@
+.card {
+	position: relative;
+	width: 100%;
+	height: max-content;
+	border-radius: var(--radius-medium);
+	overflow: hidden;
+	transition: box-shadow var(--motion-duration-short-2)
+		var(--motion-easing-linear);
+	break-inside: avoid;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.card:hover {
+	box-shadow: var(--elevation-1);
+}
+
+.card .cardBanner {
+	aspect-ratio: var(--width) / var(--height);
+}
+
+.cardContent {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-image: linear-gradient(
+		180deg,
+		transparent 0%,
+		hsla(0, 0%, 0%, 0.75)
+	);
+	pointer-events: none;
+	padding: 5px;
+	z-index: 2;
+}
+
+.card .icon-btn {
+	pointer-events: all;
+	color: var(--light-inverse-on-surface) !important;
+	margin-left: auto;
+}
+
+.cardBadge {
+	position: absolute;
+	top: 16px;
+	left: 16px;
+	width: 24px;
+	height: 24px;
+	display: grid;
+	place-items: center;
+	background-color: var(--light-secondary-container);
+	color: var(--light-on-secondary-container);
+	border-radius: var(--radius-small);
+}
+
+/* ----------------------------------- */
+/* ! MEDIA QUERIES */
+/* ----------------------------------- */
+
+/** responsive for larger than 900px screen */
+
+@media screen and (min-width: 900px) {
+	.card .cardContent {
+		opacity: 0;
+		transition: opacity var(--motion-duration-short-2)
+			var(--motion-easing-linear);
+	}
+
+	.card:where(:hover, :focus-visible) .cardContent {
+		opacity: 1;
+	}
+}
