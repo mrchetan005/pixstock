@@ -22,7 +22,7 @@ function App() {
         <Route path='/collections' element={<Collections />} />
         <Route path='/collections/detail/:id' element={<CollectionDetails />} />
         <Route path='/favorite' element={<Favorite />} />
-        {/* <Route path='*' element={<Navigate to={'/'} />} /> */}
+        <Route path='*' element={<Navigate to={'/'} />} />
       </Routes>
     </Router>
   );
