@@ -6,6 +6,7 @@ import VideoCard from "../../components/featured/VideoCard";
 import { useActivePage } from "../../hooks";
 import Masonry from "@mui/lab/Masonry/Masonry";
 import { useColumns } from '../../hooks';
+import { favoriteObj } from "../../api";
 
 
 
@@ -20,8 +21,8 @@ const Favorite = () => {
     }, [setActivePage]);
 
     useEffect(() => {
-        const favData = JSON.parse(window.localStorage.getItem('favorite'));
-        setMedia(Object.entries(favData[selected]));
+        const favData = favoriteObj;
+        setMedia(Object.entries(favData?.[selected]));
     }, [selected]);
 
     return (
