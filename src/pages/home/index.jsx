@@ -1,5 +1,5 @@
 
-import Layout from "../../components/layout";
+
 import Banner from "../../components/banner";
 import Featured from "../../components/featured";
 import Collection from "../../components/collection";
@@ -17,14 +17,12 @@ const Home = () => {
     }, [setActivePage]);
 
     return (
-        <Layout>
-            <article>
-                <Banner />
-                <Featured type='photos' />
-                <Featured type='videos' />
-                <Collection />
-            </article>
-        </Layout>
+        <article>
+            <Banner />
+            <Featured type='photos' />
+            <Featured type='videos' />
+            <Collection />
+        </article>
     );
 }
 

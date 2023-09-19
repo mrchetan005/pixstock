@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { IconButton } from '@mui/material';
 import styles from './featured.module.css';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';

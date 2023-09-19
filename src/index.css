@@ -510,6 +510,41 @@ button:disabled {
 	margin-block: 16px;
 }
 
+/* ! ************* ! */
+
+.skeleton-container {
+	aspect-ratio: 2/3;
+	background: var(
+		--surface-container
+	); /* Set a background color for the container */
+	position: relative;
+	overflow: hidden;
+	border-radius: 5px; /* Add rounded corners for a more visually appealing effect */
+}
+
+.skeleton-wave {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		var(--surface-container-high) 25%,
+		var(--surface-container-highest) 50%,
+		var(--surface-container-high) 75%
+	);
+	animation: wave 2s infinite ease-in forwards;
+}
+
+@keyframes wave {
+	0% {
+		transform: translate(-200%);
+	}
+	100% {
+		transform: translate(200%);
+	}
+}
+
+/* ! ************* ! */
+
 .load-more {
 	width: 40px;
 	height: 40px;
@@ -851,6 +886,12 @@ button:disabled {
 
 .menu-item:hover {
 	background-color: var(--surface-container-highest);
+}
+
+.masonryGrid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
 }
 
 /* ----------------------------------- */

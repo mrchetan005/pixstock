@@ -4,11 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { client } from "../../api";
 import PhotoCard from "../../components/featured/PhotoCard";
 import VideoCard from "../../components/featured/VideoCard";
-import Layout from '../../components/layout';
 import { useIntersectionObserver } from "../../hooks";
 import Masonry from "@mui/lab/Masonry/Masonry";
 import { useColumns } from '../../hooks';
-
 
 const CollectionDetails = () => {
     const [isIntersecting] = useIntersectionObserver();
@@ -19,7 +17,11 @@ const CollectionDetails = () => {
     const [media, setMedia] = useState([]);
     const [loading, setLoading] = useState(false);
     const [pageTitle, setPageTitle] = useState('');
-    const columns = useColumns()
+    const columns = useColumns();
+
+    useEffect(() => {
+        setPageTitle(decodeURI(location?.pathname?.split('/')?.[4]));
+    }, [location]);
 
     const [page, setPage] = useState(1);
     const perPage = 30;
@@ -38,8 +40,7 @@ const CollectionDetails = () => {
         client[mediaType].detail(params.id, { per_page: perPage, page: page }, data => {
             totalPages.current = Math.ceil(data.total_results / perPage);
             setLoading(false);
-            const filterUniqueData = [...media, ...data.media].filter((item, index, self) => self.findIndex((i) => i.id === item.id) === index);
-            setMedia(filterUniqueData);
+            setMedia(data.media);
         })
     }, [params, page]);
 
@@ -54,21 +55,19 @@ const CollectionDetails = () => {
 
 
     return (
-        <Layout>
-            <article className="containerr">
-                <h2 className="page-title title-large">{pageTitle}</h2>
-                <Masonry columns={columns} >
-                    {
-                        media.map((m) => (
-                            m.type.toLowerCase() === 'photo'
-                                ? <PhotoCard key={m.id} {...m} />
-                                : <VideoCard key={m.id} {...m} />
-                        ))
-                    }
-                </Masonry>
-                {loading && <LoadMore />}
-            </article>
-        </Layout>
+        <article className="containerr">
+            <h2 className="page-title title-large">{pageTitle} Collection</h2>
+            <Masonry columns={columns} >
+                {
+                    media?.map((m) => (
+                        m.type.toLowerCase() === 'photo'
+                            ? <PhotoCard key={m.id} {...m} />
+                            : <VideoCard key={m.id} {...m} />
+                    ))
+                }
+            </Masonry>
+            {loading && <LoadMore />}
+        </article>
     )
 }
 

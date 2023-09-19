@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 import ImageIcon from '@mui/icons-material/Image';
 import VideocamIcon from '@mui/icons-material/Videocam';

@@ -1,6 +1,5 @@
 
 import { useEffect } from 'react';
-import Layout from '../../components/layout';
 import Media from '../../components/media';
 import { useActivePage } from '../../hooks';
 
@@ -12,9 +11,7 @@ const Videos = () => {
     }, [setActivePage]);
 
     return (
-        <Layout>
-            <Media mediaType={'videos'} />
-        </Layout>
+        <Media mediaType={'videos'} />
     )
 }
 

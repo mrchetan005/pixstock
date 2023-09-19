@@ -1,5 +1,4 @@
 
-import LoadMore from "../../components/loader/LoadMore";
 import { useEffect, useRef, useState } from "react";
 import { client } from '../../api';
 import PhotoCard from "../../components/featured/PhotoCard";
@@ -11,6 +10,7 @@ import VideoCard from "../featured/VideoCard";
 import Masonry from '@mui/lab/Masonry';
 import { useIntersectionObserver } from '../../hooks';
 import { useColumns } from "../../hooks";
+import LoadMore from "../loader/LoadMore";
 
 const Media = () => {
     const [isIntersecting] = useIntersectionObserver();
@@ -27,12 +27,6 @@ const Media = () => {
     const [params, setParams] = useSearchParams();
     const columns = useColumns();
     let perPage = 30;
-
-    // ! scroll to top and set page to 1
-    useEffect(() => {
-        setPage(1);
-        scrollTo(0, 0);
-    }, [params]);
 
     useEffect(() => {
         // ! from params, find query if searched anything
@@ -52,12 +46,8 @@ const Media = () => {
         client?.[mediaType]?.[searchObj.query || Object.keys(filterObj).length ? 'search' : `${mediaType === 'photos' ? 'curated' : 'popular'}`]({ ...searchObj, ...filterObj, per_page: perPage, page: page }, (data) => {
             totalPages.current = Math.ceil(data.total_results / perPage);
             setLoading(false);
-            if (page === 1) {
-                setMedia(data[mediaType]);
-            } else {
-                const filterUniqueData = [...media, ...data[mediaType]].filter((item, index, self) => self.findIndex((i) => i.id === item.id) === index);
-                setMedia(filterUniqueData);
-            }
+            const filterUniqueData = [...media, ...data[mediaType]].filter((item, index, self) => self.findIndex((i) => i.id === item.id) === index);
+            setMedia(filterUniqueData);
         });
 
     }, [filterObj, page, params]);
@@ -65,6 +55,7 @@ const Media = () => {
     // ! filter functionality
     const addFilter = (e) => {
         setPage(1);
+        setMedia([]);
         const { name, value } = e.target;
         setFilterObj((prev) => ({
             ...prev,
@@ -75,6 +66,8 @@ const Media = () => {
     const removeFilter = (filter) => {
         delete filterObj[filter];
         delete searchObj[filter];
+        setPage(1);
+        setMedia([]);
         setSearchObj({ ...searchObj });
         setFilterObj({ ...filterObj });
         setParams({ ...searchObj, ...filterObj });
@@ -99,6 +92,7 @@ const Media = () => {
     }
 
     useEffect(() => {
+        console.log(isIntersecting);
         isIntersecting && loadMore();
     }, [isIntersecting])
 
@@ -150,7 +144,6 @@ const Media = () => {
                     </div>
                 </div>
             }
-            {/* <div className="media-grid"> */}
             <Masonry columns={columns}>
                 {
                     mediaType === 'photos'

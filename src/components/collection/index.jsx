@@ -21,8 +21,7 @@ const Collection = () => {
         client.collections.featured({ per_page: perPage, page: page }, (data) => {
             totalPages.current = Math.ceil(data.total_results / perPage);
             setLoading(false);
-            const filterUniqueData = [...collections, ...data.collections].filter((item, index, self) => self.findIndex((i) => i.id === item.id) === index);
-            setCollections(filterUniqueData);
+            setCollections([...collections, ...data.collections]);
         })
     }, [page]);
 
@@ -42,7 +41,7 @@ const Collection = () => {
                 <h2 className="title-large section-title" id='collection-label'>Featured collections</h2>
                 <div className="collection-grid">
                     {
-                        collections.map((collection) => (
+                        collections?.map((collection) => (
                             <CollectionCard key={collection.id} {...collection} />
                         ))
                     }

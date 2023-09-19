@@ -11,7 +11,7 @@ import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 
 
 let playTimeout;
-const VideoCard = ({ image, alt, avg_color, width, height, id, video_files, loading }) => {
+const VideoCard = ({ image, alt, avg_color, width, height, id, video_files }) => {
     const [active, setActive] = useState(favoriteObj['videos'][id]);
     const [isPlaying, setIsPlaying] = useState(false);
 

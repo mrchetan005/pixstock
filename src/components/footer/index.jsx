@@ -13,7 +13,7 @@ const Footer = () => {
         const observer = new IntersectionObserver(([entry]) => {
             setIsIntersecting(entry.isIntersecting);
         }, {
-            rootMargin: '500px',
+            rootMargin: '0px',
         });
 
         ref.current && observer.observe(ref.current);

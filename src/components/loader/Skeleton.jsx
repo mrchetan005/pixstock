@@ -1,12 +1,11 @@
-import { Skeleton } from "@mui/material";
+/* eslint-disable react/prop-types */
 
-const SkeletonCard = ({ width = 2000, height = 3000 }) => {
+const SkeletonCard = () => {
     return (
-        <Skeleton animation="wave" sx={{ aspectRatio: width / height, backgroundColor: 'var(--surface-container-highest)', marginBottom: '10px', transform: 'unset' }} />
+        <div className="skeleton-container">
+            <div className="skeleton-wave"></div>
+        </div>
     )
 }
 
 export default SkeletonCard;
-
-// custom skeleton
-// <div className="skeleton"></div>

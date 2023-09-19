@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import SearchIcon from '@mui/icons-material/Search';
@@ -18,20 +18,21 @@ import { useDownloadList } from '../../hooks';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 
 const Header = () => {
-    const params = useParams();
     const location = useLocation();
     const mediaType = location?.pathname?.split('/')[1];
+    const paramsId = location?.pathname?.split('/')?.[3];
     const [topBarActive, setTopBarActive] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [showSearchView, setShowSearchView] = useState(false);
-    const [active, setActive] = useState(favoriteObj?.[mediaType]?.[params.id]);
+    const [active, setActive] = useState(favoriteObj?.[mediaType]?.[paramsId]);
     const [expand, setExpand] = useState(false);
     const { toggleTheme } = useTheme();
     const navigate = useNavigate();
     const [list] = useDownloadList();
 
+
     const favoriteHandler = () => {
-        setActive(addToFavorite(mediaType, params.id));
+        setActive(addToFavorite(mediaType, paramsId));
     }
 
     const toggleSearchView = () => setShowSearchView(!showSearchView);
@@ -49,8 +50,8 @@ const Header = () => {
 
 
     useEffect(() => {
-        setActive(favoriteObj?.[mediaType]?.[params.id]);
-    }, [params, mediaType])
+        setActive(favoriteObj?.[mediaType]?.[paramsId]);
+    }, [paramsId, mediaType])
 
     const toggleShowMenu = () => { setShowMenu(!showMenu); }
 
@@ -62,7 +63,7 @@ const Header = () => {
         <header className={`header ${styles.topAppBar} ${topBarActive ? styles.active : ''}`}>
 
             {
-                params.id && mediaType !== 'collections'
+                paramsId && mediaType !== 'collections'
                     ? <IconButton sx={{ padding: '1.5rem' }} onClick={goBack} className="icon-btn search-open arrow-back-icon">
                         <ArrowBackIcon sx={{ fontSize: '2rem', color: 'var(--on-background)' }} />
                     </IconButton>
@@ -75,7 +76,7 @@ const Header = () => {
             <Search showSearchView={showSearchView} toggleSearchView={toggleSearchView} />
 
             {
-                params.id && mediaType !== 'collections'
+                paramsId && mediaType !== 'collections'
                     ? <>
                         <div className='split-btn'>
                             <a href={list?.[0]?.[1]} download={'image.jpg'} className='label' >

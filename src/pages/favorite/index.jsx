@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import BtnGroup from "../../components/header/BtnGroup";
-import Layout from "../../components/layout";
 import PhotoCard from "../../components/featured/PhotoCard";
 import VideoCard from "../../components/featured/VideoCard";
 import { useActivePage } from "../../hooks";
@@ -26,23 +25,21 @@ const Favorite = () => {
     }, [selected]);
 
     return (
-        <Layout>
-            <article className="containerr favorite">
-                <h2 className="page-title title-large">Favorites</h2>
-                <BtnGroup selected={selected} setSelected={setSelected} />
+        <article className="containerr favorite">
+            <h2 className="page-title title-large">Favorites</h2>
+            <BtnGroup selected={selected} setSelected={setSelected} />
 
-                <Masonry columns={columns}>
-                    {
-                        media.length >= 1 &&
-                        media.map((m) => (
-                            selected === 'photos'
-                                ? <PhotoCard key={m[0]} {...m[1]} />
-                                : <VideoCard key={m[0]} {...m[1]} />
-                        ))
-                    }
-                </Masonry>
-            </article>
-        </Layout>
+            <Masonry columns={columns}>
+                {
+                    media.length >= 1 &&
+                    media.map((m) => (
+                        selected === 'photos'
+                            ? <PhotoCard key={m[0]} {...m[1]} />
+                            : <VideoCard key={m[0]} {...m[1]} />
+                    ))
+                }
+            </Masonry>
+        </article>
     )
 }
 

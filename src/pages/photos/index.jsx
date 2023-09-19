@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Layout from "../../components/layout";
 import Media from "../../components/media";
 import { useActivePage } from "../../hooks";
 
@@ -12,9 +11,7 @@ const Photos = () => {
     }, [setActivePage]);
 
     return (
-        <Layout>
-            <Media mediaType={'photos'} />
-        </Layout>
+        <Media mediaType={'photos'} />
     )
 }
 

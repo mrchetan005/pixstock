@@ -80,4 +80,3 @@ export const addToFavorite = (type, id) => {
     })
     return true;
 }
-

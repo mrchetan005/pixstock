@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 
 import { Button, Skeleton } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { client } from '../../api';
 import PhotoCard from './PhotoCard';
 import VideoCard from './VideoCard';
@@ -12,7 +13,6 @@ const Featured = ({ type }) => {
     const [loading, setLoading] = useState(true);
     const [photos, setPhotos] = useState([]);
     const [videos, setVideos] = useState([]);
-    const gridContainer = useRef(null);
     const columns = useColumns();
     const perPage = 20;
 
