@@ -30,10 +30,7 @@ const CollectionDetails = () => {
     const columnCount = useRef(2);
     useEffect(() => {
         columnCount.current = getComputedStyle(document.documentElement).getPropertyValue('--column-count');
-        console.log('column count => ', columnCount);
     }, []);
-
-    console.log(mediaType, perPage, totalPages.current, page);
 
     useEffect(() => {
         setLoading(true);

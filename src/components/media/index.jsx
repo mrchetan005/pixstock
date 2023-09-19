@@ -92,7 +92,6 @@ const Media = () => {
     }
 
     useEffect(() => {
-        console.log(isIntersecting);
         isIntersecting && loadMore();
     }, [isIntersecting])
 
